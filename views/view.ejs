@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #b8c6cd;
+  background-image: linear-gradient(315deg, #b8c6cd, 0%, #f5f7fa, 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.quiz-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 600px;
+  max-width: 95vw;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.quiz-header {
+  padding: 4rem;
+}
+
+h2 {
+  padding: 1rem;
+  align-items: center;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+ul li label {
+  cursor: pointer;
+}
+button , .btn {
+            background-color: #8e44ad;
+            color: #fff;
+            border: none;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-family: inherit;
+            padding: 1.3rem;
+        }
+
+        button:hover , .btn:hover {
+            background-color: #732d91;
+        }
+
+        button:focus , .btn:focus {
+            outline: none;
+            background-color: #5e3370;
+        }
+        .btn{
+            margin-top: 10px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+
+
+      
+
+            <!-- <form action="/" method="post">
+              <% data.forEach((d , index) => { %>
+            <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <h2 id="question"><%= d.question%></h2>
+                  <ul>
+                    <form action="database" method="post"></form>
+                    <li>
+                        <input type="hidden" name="id" id="a" value="<%= d.id %>" class="answer"/>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer<%=index %>" id="a" value="<%= d.option[0]%>" class="answer"/>
+                      <label for="a" id="a_text" ><%= d.option[0]%></label>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer<%=index %>" id="b" value="<%= d.option[0]%>" class="answer"/>
+                      <label for="b" id="b_text"><%= d.option[1]%></label>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer<%=index %>" id="c" value="<%= d.option[0]%>" class="answer"/>
+                      <label for="c" id="c_text"><%= d.option[2]%></label>
+                    </li>
+                    <li>
+                      <input type="radio" name="answer<%=index %>" id="d" value="<%= d.option[0]%>" class="answer"/>
+                      <label for="d" id="d_text"><%= d.option[3]%></label>
+                    </li>
+                  </ul>
+                </div>
+                <button id="submit">Submit</button>
+              </div>
+              <%  }) %>
+              <button id="submit">Submit</button>
+
+            </form> -->
+            <% data.forEach((d, index) => { %>
+            <form action="/dataquery" method="post">
+             
+                <div class="quiz-container" id="quiz">
+                  <div class="quiz-header">
+                    <h2 id="question"><%= d.question %></h2>
+                    <ul>
+                      <li>
+                        <input type="hidden" name="id" value="<%= d.id %>" class="answer" />
+                      </li>
+                      <li>
+                       
+                        <label for="a<%= index %>" id="a_text">First option ==</label>
+                        <label for="a<%= index %>" id="a_text"><%= d.option[0] %></label>
+                      </li>
+                      <li>
+                        <label for="a<%= index %>" id="a_text">Second option ==</label>
+                        <label for="b<%= index %>" id="b_text"><%= d.option[1] %></label>
+                      </li>
+                      <li>
+                        <label for="a<%= index %>" id="a_text">Third option ==</label>
+                        <label for="c<%= index %>" id="c_text"><%= d.option[2] %></label>
+                      </li>
+                      <li>
+                        <label for="a<%= index %>" id="a_text">Fourth option ==</label>
+                        <label for="d<%= index %>" id="d_text"><%= d.option[3] %></label>
+                      </li>
+                      <li>
+                        <label for="a<%= index %>" id="a_text">correct answer ==</label>
+                        <label for="d<%= index %>" id="d_text"><%= d.correct_ans %></label>
+                      </li>
+                    </ul>
+                  </div>
+                  <a href="/editd/<%=d.id %>" class="btn">Edit THis Question and answer </a>
+                  <a href="/deleted/<%= d.id%>" class="btn">Delete this question and answer </a>
+                </div>
+            </form>
+           
+            <% }) %>
+            <a href="/" class="btn">back to dashboard</a>
+    </div>
+   
+      <!-- 
+      post do insta: https://www.instagram.com/p/Ch17KHPvCLU/?img_index=3
+      -->
+</body>
+</html>
