@@ -1,6 +1,1 @@
-first download this quize app 
-first "install npm" for node module 
-then run program through "node index.js"
-your quize app will be visible in the port 5001 
-first page are create your quize 
-then play and enjoy
+its a create through node js so first download this quize app and then "install npm" for node module and then run program through "node index.js" and go to your browaer and run yhis quize app in 5001 port no
